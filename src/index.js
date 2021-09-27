@@ -13,8 +13,9 @@ const {
 } = require("date-fns");
 const ora = require("ora");
 const boxen = require("boxen");
+const chalk = require("chalk");
 
-module.exports = function ({ commitsPerDay, workdaysOnly, startDate, endDate }) {
+module.exports = function({ commitsPerDay, workdaysOnly, startDate, endDate }) {
   const commitDateList = createCommitDateList({
     workdaysOnly,
     commitsPerDay: commitsPerDay.split(","),
@@ -25,7 +26,7 @@ module.exports = function ({ commitsPerDay, workdaysOnly, startDate, endDate }) 
   (async function() {
     const spinner = ora("Generating your GitHub activity\n").start();
 
-    const historyFolder = "my-history2";
+    const historyFolder = "../my-history2";
 
     // Remove git history folder in case if it already exists.]
     if (existsSync(`./${historyFolder}`)) {

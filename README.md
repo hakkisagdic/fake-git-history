@@ -1,5 +1,8 @@
 # Generate GitHub Commits
 
+harder : node src/cli.js -w -c "0,18" -s 2021/05/30
+fewer : node src/cli.js -w -s 2021/05/30
+
 A command-line tool to generate your GitHub activity graph.
 
 Does your profile look like you have stopped coding at all? 
