@@ -11,11 +11,10 @@ const {
   setHours,
   setMinutes
 } = require("date-fns");
-const chalk = require("chalk");
 const ora = require("ora");
 const boxen = require("boxen");
 
-module.exports = function({ commitsPerDay, workdaysOnly, startDate, endDate }) {
+module.exports = function ({ commitsPerDay, workdaysOnly, startDate, endDate }) {
   const commitDateList = createCommitDateList({
     workdaysOnly,
     commitsPerDay: commitsPerDay.split(","),
@@ -26,7 +25,7 @@ module.exports = function({ commitsPerDay, workdaysOnly, startDate, endDate }) {
   (async function() {
     const spinner = ora("Generating your GitHub activity\n").start();
 
-    const historyFolder = "my-history";
+    const historyFolder = "my-history2";
 
     // Remove git history folder in case if it already exists.]
     if (existsSync(`./${historyFolder}`)) {
@@ -63,9 +62,7 @@ module.exports = function({ commitsPerDay, workdaysOnly, startDate, endDate }) {
       boxen(
         `${chalk.green("Success")} ${
           commitDateList.length
-        } commits have been created.
-      If you rely on this tool, please consider buying me a cup of coffee. I would appreciate it 
-      ${chalk.blueBright("https://www.buymeacoffee.com/artiebits")}`,
+        } commits have been created.`,
         { borderColor: "yellow", padding: 1, align: "center" }
       )
     );
